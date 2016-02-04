@@ -1,25 +1,60 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PhotoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OQw-rk-ubq">
+                                <rect key="frame" x="40" y="40" width="240" height="391"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TmX-jU-ZHW">
+                                <rect key="frame" x="122" y="442" width="77" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="8R6-Po-SUV"/>
+                                </constraints>
+                                <state key="normal" title="Take Photo"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="8R6-Po-SUV"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="takePhotoPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QxC-sm-YAC"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OQw-rk-ubq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="24" id="2q9-oN-Kip"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TmX-jU-ZHW" secondAttribute="bottom" constant="8" symbolic="YES" id="3C8-Fv-UgF"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OQw-rk-ubq" secondAttribute="bottom" constant="49" id="5iC-UG-hTa"/>
+                            <constraint firstItem="OQw-rk-ubq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="OoA-UH-1Gu"/>
+                            <constraint firstItem="TmX-jU-ZHW" firstAttribute="centerX" secondItem="OQw-rk-ubq" secondAttribute="centerX" id="Rzw-Nm-BTV"/>
+                            <constraint firstItem="OQw-rk-ubq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xK3-mJ-igF"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="imageView" destination="OQw-rk-ubq" id="Qcy-IS-PKv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="197" y="410"/>
         </scene>
     </scenes>
 </document>

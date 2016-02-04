@@ -7,19 +7,26 @@
 //
 
 import UIKit
+import CZPhotoPickerController
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    var photoController:CZPhotoPickerController?
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
+    
+    @IBAction func takePhotoPressed(sender: AnyObject) {
+        
+        photoController = CZPhotoPickerController(completionBlock: { (picker:UIImagePickerController!, info:[NSObject : AnyObject]!) -> Void in
+            
+            let castedInfo = info as! NSDictionary
+            self.imageView.image = castedInfo[UIImagePickerControllerOriginalImage] as! UIImage
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        })
+        
+        self.photoController?.presentFromViewController(self)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
